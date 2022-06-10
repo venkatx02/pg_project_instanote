@@ -1,32 +1,25 @@
-import React from "react";
-import { useState, createContext } from "react";
-import { Routes, Route } from "react-router-dom";
-import Login from './Login';
-import Register from './Register';
-import Homepage from "./Homepage";
-import Nav from "./Nav";
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
-export const store = createContext();
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Header from './components/Header';
 
-const App = () => {
-
-  const [token, setToken] = useState();
-
+function App() {
   return (
     <>
-    <store.Provider value={[token, setToken]}>
-    <Nav />
-    <div className="container">
-    <Routes>
-    <Route exact path='/login' element={<Login />} />
-    <Route exact path='/register' element={<Register />} />
-    <Route exact path='/homepage' element={<Homepage />} />
-    </Routes>
+    <BrowserRouter>
+    <div className='container'>
+      <Header />
+      <Routes>
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+      </Routes>
     </div>
-    </store.Provider>
+    </BrowserRouter>
     </>
-
-  )
+  );
 }
 
 export default App;

@@ -1,57 +1,19 @@
 const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const User = require('./models/user');
-const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv').config()
+const {errorHandler} = require('./middleware/errorMiddleware')
+const connectDB = require('./config/db')
+const port = process.env.PORT
 
+connectDB()
 
 const app = express()
 
-app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded({extended: false}))
 
-mongoose.connect('mongodb://localhost:27017/user-db')
+app.use('/api/events', require('./routes/eventRoute'))
+app.use('/api/users', require('./routes/userRoute'))
 
+app.use(errorHandler)
 
-app.post('/api/register', async (req, res) => {
-    console.log(req.body)
-    try{
-        const user = await User.create({
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password,
-        })
-        res.json({ status: 'ok' })
-    }
-    catch(err){
-        console.log(err)
-        res.json({ status: 'error', error: 'Duplicate email' })
-    }
-})
-
-
-app.post('/api/login', async (req, res) => {
-        const user = await User.findOne({
-            email: req.body.email,
-            password: req.body.password,
-        })
-
-
-
-        if (user){
-
-            const token = jwt.sign(
-                {email: user.email,
-                password: user.password}, 'loldewd')
-
-            return res.json({ status: 'ok', user: true })
-        }
-        else{
-            return res.json({ status: 'error', user: false })
-        }
-
-})
-
-app.listen(5000, () => {
-    console.log('Server started...!')
-})
+app.listen(port, () => console.log('Server started...!'))
