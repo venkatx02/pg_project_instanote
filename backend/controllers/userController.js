@@ -67,12 +67,7 @@ const loginUser = asyncHandler(async (req, res) => {
 // route - GET method- /api/users/mp
 //access - private
 const getMP = asyncHandler(async (req, res) => {
-    const { _id, name, email } = await User.findById(req.user.id)
-    res.json({
-        id: _id,
-        name,
-        email
-    })
+    res.json(req.user)
 })
 
 //generate token (jwt)

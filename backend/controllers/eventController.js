@@ -38,13 +38,12 @@ const updateEvent = asyncHandler(async (req, res) => {
     }
 
     //check for user
-    const user = await User.findById(req.user.id)
-    if(!User){
+    if(!req.user){
         throw new Error('User not found')
     }
 
     //making sure logged in user matches the event user
-    if(event.user.toString() !== user.id){
+    if(event.user.toString() !== req.user.id){
         throw new Error('User not authorized')
     }
 
@@ -63,13 +62,12 @@ const deleteEvent = asyncHandler(async (req, res) => {
     }
 
         //check for user
-        const user = await User.findById(req.user.id)
-        if(!User){
+        if(!req.user){
             throw new Error('User not found')
         }
     
         //making sure logged in user matches the event user
-        if(event.user.toString() !== user.id){
+        if(event.user.toString() !== req.user.id){
             throw new Error('User not authorized')
         }
         
