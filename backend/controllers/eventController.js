@@ -22,7 +22,6 @@ const createEvent = asyncHandler(async (req, res) => {
     const event = await Event.create({
         eventname: req.body.eventname,
         eventdescription: req.body.eventdescription,
-        user: req.user.id
     })
     res.send(event)
 })

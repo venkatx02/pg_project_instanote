@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react'
 import axios from 'axios'
 import { store } from './App'
 import { Navigate } from "react-router-dom";
+import {FaSignInAlt} from 'react-icons/fa'
+import { toast } from 'react-toastify';
 
 function Login() {
     const [token, setToken] = useContext(store)
@@ -25,19 +27,25 @@ function Login() {
         return (
             <Navigate to="/dashboard" replace={true} />
           )
-    }
+        }
 
 
   return (
     <div>
-        <form onSubmit={submitHandler} autoComplete='off'>
-            <h1>Login</h1>
-            <input type='email' onChange={changeHandler} name='email' placeholder='Enter email' /><br />
-            <input type='password' onChange={changeHandler} name='password' placeholder='Enter password' /><br />
-            <input type='submit' value='Login' />
+        <section className='heading'>
+        <h1><FaSignInAlt />Login</h1>
+        <p>Login to your account!</p>
+        </section>
 
-            
+        <section className='form'>
+        <form onSubmit={submitHandler} autoComplete='off'>
+            <div className='form-group'>           
+            <input className='form-control' type='email' onChange={changeHandler} name='email' placeholder='Enter email' /><br />
+            <input className='form-control' type='password' onChange={changeHandler} name='password' placeholder='Enter password' /><br />
+            <input className='btn btn-block' type='submit' value='Login' />
+            </div>
         </form>
+        </section>
     </div>
   )
 }
