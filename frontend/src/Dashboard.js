@@ -25,17 +25,18 @@ function Dashboard() {
 
     return (
     <>
-    <div>
+    <div className='eventelement'>
       <ul>
         {
-        events.map(event => (
-          <li key={event._id}>{event.eventname}{event.eventdescription}</li>
+        events.map(event => (         
+          <li key={event._id}>{event.eventname}<br />
+          {event.eventdescription}</li>         
         ))
         }
       </ul>
     </div>
     <div>
-        <button onClick={ () => setToken(null) }>Logout</button>
+        
     </div>
     </>
   )

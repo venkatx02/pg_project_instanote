@@ -20,6 +20,7 @@ function Navbar() {
         <ul>
           <li><Link to='/dashboard'>Search for Events</Link></li>
           <li><Link to='/dashboard/hostevent'>Host your own Event</Link></li>
+          <li><button onClick={ () => setToken(null) }>Logout</button></li>
         </ul>
 
         }
