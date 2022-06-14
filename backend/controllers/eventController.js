@@ -16,14 +16,16 @@ const readEvent = asyncHandler(async (req, res) => {
 //access - private
 
 const createEvent = asyncHandler(async (req, res) => {
-    if(!req.body.eventname && !req.body.eventdescription){
+    if(!req.body.eventname){
         throw new Error('Please fill all fields')
     }
     const event = await Event.create({
+        user: req.user.id,
         eventname: req.body.eventname,
         eventtype: req.body.eventtype,
         eventorganizer: req.body.eventorganizer,
         eventcollabrators: req.body.eventcollabrators,
+        eventdate: req.body.eventdate,
         eventvenue: req.body.eventvenue,
         eventcontact: req.body.eventcontact,
         eventemail: req.body.eventemail,

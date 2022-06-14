@@ -31,9 +31,18 @@ function Dashboard() {
         events.map(event => (     
           <section className=''>
           <li key={event._id}>
-            <div className='eventtitle'> {event.eventname} </div>
-            <div className='eventdetails'> {event.eventdescription} </div>
-          
+          <table className="eventtable" >
+          <th><div className='eventtitle'> {event.eventname} </div></th>
+          <tr><div className='eventhoster'> {event.name} </div></tr>
+          <tr><div className='eventdetails'> {event.eventtype} </div></tr>
+          <tr><div className='eventdetails'> {event.eventorganizer} </div></tr>
+          <tr><div className='eventdetails'> {event.eventcollabrators} </div></tr>
+          <tr><div className='eventdetails'> {event.eventdate} </div></tr>
+          <tr><div className='eventdetails'> {event.eventvenue} </div></tr>
+          <tr><div className='eventdetails'> {event.eventcontact} </div></tr>
+          <tr><div className='eventdetails'> {event.eventemail} </div></tr>
+          <tr><div className='eventdetails'> {event.eventdescription} </div></tr>
+          </table>
           </li><br />
           </section>             
         ))

@@ -24,15 +24,19 @@ function Hostevent() {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/api/events',{
-          eventname: data.eventname,
-          eventtype: data.eventtype,
-          eventorganizer: data.eventorganizer,
-          eventcollabrators: data.eventcollabrators,
-          eventvenue: data.eventvenue,
-          eventcontact: data.eventcontact,
-          eventemail: data.eventemail,
-          eventdescription: data.eventdescription,
+
+        axios.post('http://localhost:5000/api/events', { eventname: data.eventname,
+        eventtype: data.eventtype,
+        eventorganizer: data.eventorganizer,
+        eventcollabrators: data.eventcollabrators,
+        eventdate: data.eventdate,
+        eventvenue: data.eventvenue,
+        eventcontact: data.eventcontact,
+        eventemail: data.eventemail,
+        eventdescription: data.eventdescription }, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         }).then(
             res => console.log(res.data)
         )
@@ -48,6 +52,7 @@ function Hostevent() {
             <input className='form-control' type='text' name='eventtype' onChange={changeHandler} placeholder='Type of the event' /><br />
             <input className='form-control' type='text' name='eventorganizer' onChange={changeHandler} placeholder='Organized by' /><br />
             <input className='form-control' type='text' name='eventcollabrators' onChange={changeHandler} placeholder='Collabrators (if any)' /><br />
+            <input className='form-control' type='text' name='eventdate' onChange={changeHandler} placeholder='Venue of the event' /><br />
             <input className='form-control' type='text' name='eventvenue' onChange={changeHandler} placeholder='Venue of the event' /><br />
             <input className='form-control' type='text' name='eventcontact' onChange={changeHandler} placeholder='Mobile number for contact' /><br />
             <input className='form-control' type='text' name='eventemail' onChange={changeHandler} placeholder='Email for contact' /><br />

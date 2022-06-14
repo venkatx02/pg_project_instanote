@@ -10,6 +10,7 @@ code {
 }
 
 body {
+  background-image: url(./bgimage.jpg);
   font-family: 'Poppins', sans-serif;
   height: 100vh;
 }
@@ -89,18 +90,30 @@ h3 {
   color: #828282;
 }
 
+table{
+  border-radius: 10px;
+}
+
+th,tr{
+  border: hidden;
+}
+
+.eventtable {
+  background-color: antiquewhite;
+  border: "5px";
+  width: 100%;
+  padding: 5%;
+  }
+
 .eventtitle {
   text-align: left;
-  height: 5rem;
-  width: 5rem;
-  margin: 1rem;
-  color: black;
-  font-size: 3rem;
+  color: brown;
+  font-size: 1rem;
 }
 
 .eventdetails {
   text-align: left;
-  color: #000;
+  color: #c4a484;
 }
 
 .form,
