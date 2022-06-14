@@ -28,9 +28,14 @@ function Dashboard() {
     <div className='eventelement'>
       <ul>
         {
-        events.map(event => (         
-          <li key={event._id}>{event.eventname}<br />
-          {event.eventdescription}</li>         
+        events.map(event => (     
+          <section className=''>
+          <li key={event._id}>
+            <div className='eventtitle'> {event.eventname} </div>
+            <div className='eventdetails'> {event.eventdescription} </div>
+          
+          </li><br />
+          </section>             
         ))
         }
       </ul>

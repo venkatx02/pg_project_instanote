@@ -9,6 +9,12 @@ function Hostevent() {
   console.log(token)
     const [data, setData] = useState({
         eventname:'',
+        eventtype: '',
+        eventorganizer: '',
+        eventcollabrators: '',
+        eventvenue: '',
+        eventcontact: '',
+        eventemail: '',
         eventdescription:''
     })
 
@@ -20,6 +26,12 @@ function Hostevent() {
         e.preventDefault()
         axios.post('http://localhost:5000/api/events',{
           eventname: data.eventname,
+          eventtype: data.eventtype,
+          eventorganizer: data.eventorganizer,
+          eventcollabrators: data.eventcollabrators,
+          eventvenue: data.eventvenue,
+          eventcontact: data.eventcontact,
+          eventemail: data.eventemail,
           eventdescription: data.eventdescription,
         }).then(
             res => console.log(res.data)
@@ -28,12 +40,22 @@ function Hostevent() {
   if(token){
   return (
     <div>
+      <section className='form'>
         <form onSubmit={submitHandler} autoComplete='off'>
+          <div className='form-group'>
             <h1>Enter event details</h1>
-            <input type='text' name='eventname' onChange={changeHandler} placeholder='Name/Title of the event' /><br />
-            <textarea name='eventdescription' onChange={changeHandler} placeholder='Description of the event such as hosted by, target audience, contact details...' /><br />
-            <input type='submit' value='Submit' />
+            <input className='form-control' type='text' name='eventname' onChange={changeHandler} placeholder='Name/Title of the event' /><br />
+            <input className='form-control' type='text' name='eventtype' onChange={changeHandler} placeholder='Type of the event' /><br />
+            <input className='form-control' type='text' name='eventorganizer' onChange={changeHandler} placeholder='Organized by' /><br />
+            <input className='form-control' type='text' name='eventcollabrators' onChange={changeHandler} placeholder='Collabrators (if any)' /><br />
+            <input className='form-control' type='text' name='eventvenue' onChange={changeHandler} placeholder='Venue of the event' /><br />
+            <input className='form-control' type='text' name='eventcontact' onChange={changeHandler} placeholder='Mobile number for contact' /><br />
+            <input className='form-control' type='text' name='eventemail' onChange={changeHandler} placeholder='Email for contact' /><br />
+            <textarea className='form-control' name='eventdescription' onChange={changeHandler} placeholder='Description of the event' /><br />
+            <input className='btn btn-block' type='submit' value='Submit' />
+          </div>
             </form>
+      </section>
     </div>
   )}
 }

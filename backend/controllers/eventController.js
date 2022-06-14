@@ -21,7 +21,14 @@ const createEvent = asyncHandler(async (req, res) => {
     }
     const event = await Event.create({
         eventname: req.body.eventname,
+        eventtype: req.body.eventtype,
+        eventorganizer: req.body.eventorganizer,
+        eventcollabrators: req.body.eventcollabrators,
+        eventvenue: req.body.eventvenue,
+        eventcontact: req.body.eventcontact,
+        eventemail: req.body.eventemail,
         eventdescription: req.body.eventdescription,
+
     })
     res.send(event)
 })
