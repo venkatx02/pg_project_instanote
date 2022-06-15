@@ -9,18 +9,18 @@ function Navbar() {
 
   return (
     <header className='navbar'>
-      <div className='logo'><Link to='/'>InstaNote</Link></div>
+      <div className='logo'><ul><li><Link to='/'>InstaNote</Link></li></ul></div>
         {!token &&
         <ul>
-            <li><Link to='/register'><FaUser />Register</Link></li>
-            <li><Link to='/login'><FaSignInAlt />Login</Link></li>
+            <li className='navbutton'><Link to='/register'><FaUser />Register</Link></li>
+            <li className='navbutton'><Link to='/login'><FaSignInAlt />Login</Link></li>
         </ul>
 }
         {token &&
         <ul>
-          <li><Link to='/dashboard'>Search for Events</Link></li>
-          <li><Link to='/dashboard/hostevent'>Host your own Event</Link></li>
-          <li><button onClick={ () => setToken(null) }>Logout</button></li>
+          <li className='navbutton'><Link to='/dashboard'>Search for Events</Link></li>
+          <li className='navbutton'><Link to='/dashboard/hostevent'>Host your own Event</Link></li>
+          <li><button className='logout' onClick={ () => setToken(null) }>Logout</button></li>
         </ul>
 
         }

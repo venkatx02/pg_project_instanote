@@ -52,7 +52,7 @@ function Hostevent() {
             <input className='form-control' type='text' name='eventtype' onChange={changeHandler} placeholder='Type of the event' /><br />
             <input className='form-control' type='text' name='eventorganizer' onChange={changeHandler} placeholder='Organized by' /><br />
             <input className='form-control' type='text' name='eventcollabrators' onChange={changeHandler} placeholder='Collabrators (if any)' /><br />
-            <input className='form-control' type='text' name='eventdate' onChange={changeHandler} placeholder='Venue of the event' /><br />
+            <input className='form-control' type='text' name='eventdate' onChange={changeHandler} placeholder='Date of the event' /><br />
             <input className='form-control' type='text' name='eventvenue' onChange={changeHandler} placeholder='Venue of the event' /><br />
             <input className='form-control' type='text' name='eventcontact' onChange={changeHandler} placeholder='Mobile number for contact' /><br />
             <input className='form-control' type='text' name='eventemail' onChange={changeHandler} placeholder='Email for contact' /><br />

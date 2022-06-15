@@ -4,13 +4,13 @@ code {
 }
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: auto;
+  padding: auto;
   box-sizing: border-box;
 }
 
 body {
-  background-image: url(./bgimage.jpg);
+  background-image: url(./bgimagefinal.jpg);
   font-family: 'Poppins', sans-serif;
   height: 100vh;
 }
@@ -29,7 +29,7 @@ ul {
 }
 
 li {
-  line-height: 2.2;
+  line-height: 1.5;
 }
 
 h1,
@@ -41,13 +41,26 @@ h3 {
 
 .container {
   width: 100%;
-  max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 0;
   text-align: center;
 }
 
+.logo{
+  font-size: 2rem;
+  color: pink;
+}
+
+.abouttable {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lavender;
+  width: 60%;
+  padding: 5%;
+  }
+
 .navbar {
+  background-color: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,6 +80,7 @@ h3 {
 }
 
 .navbar ul li a {
+  color: pink;
   display: flex;
   align-items: center;
 }
@@ -90,30 +104,43 @@ h3 {
   color: #828282;
 }
 
-table{
-  border-radius: 10px;
-}
-
-th,tr{
-  border: hidden;
-}
-
 .eventtable {
-  background-color: antiquewhite;
-  border: "5px";
-  width: 100%;
-  padding: 5%;
+  background-color: lavender;
+  border-color: darkmagenta;
+  border-width: 3px;
+  border: 1;
+  border-radius: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
   }
+
+.eventth{
+  border: 0;
+}
 
 .eventtitle {
   text-align: left;
-  color: brown;
-  font-size: 1rem;
+  color: darkred;
+  font-size: 1.5rem;
+}
+
+.eventsh{
+  font-weight: bold;
+}
+
+.eventhoster{
+  color: #777;
+  font-size: 0.7rem;
+  text-align: left;
+  font-style: italic;
+
 }
 
 .eventdetails {
   text-align: left;
-  color: #c4a484;
+  font-size: 0.8rem;
 }
 
 .form,
@@ -141,6 +168,38 @@ th,tr{
   text-align: left;
   display: block;
   margin: 0 0 5px 3px;
+}
+
+.navbutton {
+  padding: 10px 20px;
+  border: 1px solid pink;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout {
+  padding: 10px 20px;
+  border: 1px solid pink;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
