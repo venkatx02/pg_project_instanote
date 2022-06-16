@@ -55,6 +55,10 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   background-color: lavender;
+  border-color: darkmagenta;
+  border-width: 3px;
+  border: 1;
+  border-radius: 10px;
   width: 60%;
   padding: 5%;
   }

@@ -3,7 +3,7 @@ import React from 'react'
 function Home() {
   return (
     <>
-    <table className='abouttable'>
+    <table className='abouttable' border={1}>
     <div className='heading'>About InstaNote</div>
     <div>Welcome to InstaNote...!
     Want to gain audience for your events? Want to attend events and have fun? Then your'e at the right place.
