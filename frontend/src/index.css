@@ -120,6 +120,40 @@ h3 {
   padding: 1%;
   }
 
+.viewbutton{
+  background-color: red;
+  border-width: 1px;
+  border-color: #fff;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.3%;
+  width: 5%;
+  font-size: 14px;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.viewbutton:hover {
+  transform: scale(0.98);
+}
+
+.eventdetailtable {
+  background-color: lavender;
+  border-color: darkmagenta;
+  border-width: 3px;
+  border: 1;
+  border-radius: 10px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3%;
+  }
+
+  .eventdetailtable tr{
+    padding: 5%;
+    }
+  
+
 .eventth{
   border: 0;
 }

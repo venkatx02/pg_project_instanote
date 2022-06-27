@@ -5,6 +5,7 @@ import Register from './Register';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Hostevent from './Hostevent';
+import EventDetail from './EventDetail';
 import Home from './Home';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -25,6 +26,7 @@ function App() {
       <Route path='/login' element={< Login />}></Route>
       <Route path='/dashboard' element={< Dashboard />}></Route>
       <Route exact path='/dashboard/hostevent' element={< Hostevent />}></Route>
+      <Route path="/dashboard/:id" element={<EventDetail/>} />
       </Routes>
       </BrowserRouter>
       </store.Provider>

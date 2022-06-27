@@ -1,10 +1,25 @@
-const asyncHandler = require('express-async-handler')
-const Event = require('../models/eventmodel')
-const User = require('../models/usermodel')
+const asyncHandler = require('express-async-handler');
+const multer = require('multer');
+const Event = require('../models/eventmodel');
+const User = require('../models/usermodel');
+const path = require('path');
+
+
+//storage engine
+const storage = multer.diskStorage({
+    destination: './upload/images',
+    filename: (req, file, cb) => {
+        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+})
+
+const upload = multer({
+    storage: storage
+});
 
 // to read the event
 // route - GET method- /api/events
-//access - private
+//access - public
 
 const readEvent = asyncHandler(async (req, res) => {
     const events = await Event.find()
@@ -16,6 +31,7 @@ const readEvent = asyncHandler(async (req, res) => {
 //access - private
 
 const createEvent = asyncHandler(async (req, res) => {
+    console.log(req.file)
     if(!req.body.eventname){
         throw new Error('Please fill all fields')
     }
@@ -35,8 +51,17 @@ const createEvent = asyncHandler(async (req, res) => {
     res.send(event)
 })
 
+// to fetch an event
+// route - GET method- /api/events/:id
+//access - public
+
+const readSingleEvent = asyncHandler(async (req, res) => {
+    const event = await Event.findById(req.params.id)
+    res.send(event)
+})
+
 // to update the event
-// route - PUT method- /api/events
+// route - PUT method- /api/events/:id
 //access - private
 
 const updateEvent = asyncHandler(async (req, res) => {
@@ -83,4 +108,4 @@ const deleteEvent = asyncHandler(async (req, res) => {
     res.send({ id: req.params.id })
 })
 
-module.exports = {readEvent, createEvent, updateEvent, deleteEvent}
+module.exports = {readEvent, createEvent, updateEvent, deleteEvent, readSingleEvent, upload}

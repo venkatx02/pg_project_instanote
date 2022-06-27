@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router()
-const { readEvent, createEvent, updateEvent, deleteEvent } = require('../controllers/eventController')
+const { readEvent, createEvent, updateEvent, deleteEvent, readSingleEvent} = require('../controllers/eventController')
 const {protect} = require('../middleware/authMiddleware')
+const {upload} = require('../controllers/eventController')
 
-router.route('/').get(readEvent).post(protect, createEvent)
-router.route('/:id').put(protect, updateEvent).delete(protect, deleteEvent)
+router.route('/').get(readEvent).post(protect, upload.single('photo'), createEvent)
+router.route('/:id').put(protect, updateEvent).delete(protect, deleteEvent).get(readSingleEvent)
 
 
 module.exports = router
