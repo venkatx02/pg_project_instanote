@@ -15,6 +15,7 @@ const eventSchema = mongoose.Schema({
     eventcontact: Number,
     eventemail: String,
     eventdescription: String,
+    eventprice: Number,
     eventimage:{
         type: String
     }})

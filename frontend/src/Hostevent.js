@@ -16,7 +16,8 @@ function Hostevent() {
         eventvenue: '',
         eventcontact: '',
         eventemail: '',
-        eventdescription:''
+        eventdescription: '',
+        eventprice: ''
     })
 
     const changeHandler = (e) => {
@@ -35,7 +36,8 @@ function Hostevent() {
         eventvenue: data.eventvenue,
         eventcontact: data.eventcontact,
         eventemail: data.eventemail,
-        eventdescription: data.eventdescription, }, {
+        eventdescription: data.eventdescription,
+        eventprice: data.eventprice }, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -60,6 +62,7 @@ function Hostevent() {
             <input className='form-control' type='text' name='eventcontact' onChange={changeHandler} placeholder='Mobile number for contact' /><br />
             <input className='form-control' type='text' name='eventemail' onChange={changeHandler} placeholder='Email for contact' /><br />
             <textarea className='form-control' name='eventdescription' onChange={changeHandler} placeholder='Description of the event' /><br />
+            <input className='form-control' type='number' name='eventprice' onChange={changeHandler} placeholder='Ticket Price' /><br />
             <input className='btn btn-block' type='submit' value='Submit' />
           </div>
             </form>

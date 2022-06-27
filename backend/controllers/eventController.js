@@ -46,6 +46,7 @@ const createEvent = asyncHandler(async (req, res) => {
         eventcontact: req.body.eventcontact,
         eventemail: req.body.eventemail,
         eventdescription: req.body.eventdescription,
+        eventprice: req.body.eventprice
 
     })
     res.send(event)

@@ -133,7 +133,24 @@ h3 {
   cursor: pointer;
 }
 
+.bookbutton{
+  background-color: red;
+  border-width: 1px;
+  border-color: #fff;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5%;
+  width: 10%;
+  font-size: 14px;
+  font-weight: 100;
+  cursor: pointer;
+}
+
 .viewbutton:hover {
+  transform: scale(0.98);
+}
+
+.bookbutton:hover {
   transform: scale(0.98);
 }
 

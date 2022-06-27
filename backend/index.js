@@ -18,6 +18,7 @@ app.use('/api/events', express.static('upload/images'))
 
 app.use('/api/events', require('./routes/eventRoute'))
 app.use('/api/users', require('./routes/userRoute'))
+app.use('/api/order', require('./routes/orderRoute'))
 
 app.use(errorHandler)
 
