@@ -16,7 +16,7 @@ const eventSchema = mongoose.Schema({
     eventemail: String,
     eventdescription: String,
     eventprice: Number,
-    eventimage:{
+    eventimage: {
         type: String
     }})
 

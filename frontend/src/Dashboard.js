@@ -33,11 +33,16 @@ function Dashboard() {
           <li key={event._id}>
           <table className='eventtable' border={1}>
           <th className='eventth'><div className='eventtitle'> {event.eventname} </div></th>
-          <tr><div className='eventhoster'> hosted by: {event.user} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Event type: </label>{event.eventtype} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Date: </label>{event.eventdate} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Organized by: </label>{event.eventorganizer} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Description: </label>{event.eventdescription} </div></tr>
+          <tr>
+          <td className='eventdetailcell'>
+          <div className='eventhoster'> hosted by: {event.user} </div>
+          <div className='eventdetails'> <label className='eventsh'>Event type: </label>{event.eventtype} </div>
+          <div className='eventdetails'> <label className='eventsh'>Date: </label>{event.eventdate} </div>
+          <div className='eventdetails'> <label className='eventsh'>Organized by: </label>{event.eventorganizer} </div>
+          <div className='eventdetails'> <label className='eventsh'>Description: </label>{event.eventdescription} </div>
+          </td>
+          <td className='eventdetailcell'><img className='dashboardphoto' src={`http://localhost:5000/api/events/${event.eventimage}`} /></td>
+          </tr>
           <tr><div><button className='viewbutton' onClick={()=>{navigate(`/dashboard/${event._id}`)}}>View</button></div></tr>
           </table>
           </li><br />

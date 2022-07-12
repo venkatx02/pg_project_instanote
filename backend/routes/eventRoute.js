@@ -4,7 +4,7 @@ const { readEvent, createEvent, updateEvent, deleteEvent, readSingleEvent} = req
 const {protect} = require('../middleware/authMiddleware')
 const {upload} = require('../controllers/eventController')
 
-router.route('/').get(readEvent).post(protect, upload.single('photo'), createEvent)
+router.route('/').get(readEvent).post(protect, upload.single('eventimage'), createEvent)
 router.route('/:id').put(protect, updateEvent).delete(protect, deleteEvent).get(readSingleEvent)
 
 

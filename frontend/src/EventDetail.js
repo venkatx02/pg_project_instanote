@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import React, {useEffect, useState, useContext} from 'react';
+import {useParams, Navigate} from 'react-router-dom';
 import axios from 'axios';
 import {ToastContainer, toast} from 'react-toastify';
+import { store } from './App'
 
 function EventDetail() {
+  const [token, setToken] = useContext(store)
   const {id} = useParams();
   const [event, setEvent] = useState([]);
   useEffect(()=>{
@@ -54,21 +56,32 @@ function EventDetail() {
 
   const imglink = `http://localhost:5000/api/events/${event.eventimage}`
 
+  if(!token){
+    return (
+        <Navigate to="/login" replace={true} />
+      ) 
+}
+
 
   return (
     <div> <li>
           <table className='eventdetailtable' border={1}>
           <th className='eventth'><div className='eventtitle'> {event.eventname} </div></th>
-          <tr><div className='eventhoster'> hosted by: {event.user} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Event type: </label>{event.eventtype} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Organized by: </label>{event.eventorganizer} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Collabrators/Sponsors: </label>{event.eventcollabrators} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Date: </label>{event.eventdate} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Venue: </label>{event.eventvenue} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Contact no.: </label>{event.eventcontact} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Contact E-mail: </label>{event.eventemail} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Description: </label>{event.eventdescription} </div></tr>
-          <tr><div className='eventdetails'> <label className='eventsh'>Ticket Price: </label>{event.eventprice} </div></tr>
+          <tr>
+          <td className='eventdetailcell'>
+          <div className='eventhoster'> hosted by: {event.user} </div>
+          <div className='eventdetails'> <label className='eventsh'>Event type: </label>{event.eventtype} </div>
+          <div className='eventdetails'> <label className='eventsh'>Organized by: </label>{event.eventorganizer} </div>
+          <div className='eventdetails'> <label className='eventsh'>Collabrators/Sponsors: </label>{event.eventcollabrators} </div>
+          <div className='eventdetails'> <label className='eventsh'>Date: </label>{event.eventdate} </div>
+          <div className='eventdetails'> <label className='eventsh'>Venue: </label>{event.eventvenue} </div>
+          <div className='eventdetails'> <label className='eventsh'>Contact no.: </label>{event.eventcontact} </div>
+          <div className='eventdetails'> <label className='eventsh'>Contact E-mail: </label>{event.eventemail} </div>
+          <div className='eventdetails'> <label className='eventsh'>Description: </label>{event.eventdescription} </div>
+          <div className='eventdetails'> <label className='eventsh'>Ticket Price: </label>{event.eventprice} /-</div>
+          </td>
+          <td className='eventdetailcell'><img className='photo' src={imglink} /></td>
+          </tr>
           <tr><div><button className='bookbutton'onClick={handlePayment}>Book now</button></div></tr>
 
           </table>

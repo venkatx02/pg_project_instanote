@@ -7,9 +7,11 @@ const path = require('path');
 
 //storage engine
 const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req, file, cb) => {
-        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    destination: (req, file, callback) => {
+        callback(null, "./upload/images")
+    },
+    filename: (req, file, callback) => {
+        callback(null, file.originalname)
     }
 })
 
@@ -46,7 +48,8 @@ const createEvent = asyncHandler(async (req, res) => {
         eventcontact: req.body.eventcontact,
         eventemail: req.body.eventemail,
         eventdescription: req.body.eventdescription,
-        eventprice: req.body.eventprice
+        eventprice: req.body.eventprice,
+        eventimage: (req.file) ? req.file.originalname : null
 
     })
     res.send(event)

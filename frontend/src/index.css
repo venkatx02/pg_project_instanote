@@ -120,6 +120,10 @@ h3 {
   padding: 1%;
   }
 
+  .eventdetailcell{
+    border: 0ch;
+  }
+
 .viewbutton{
   background-color: red;
   border-width: 1px;
@@ -153,6 +157,13 @@ h3 {
 .bookbutton:hover {
   transform: scale(0.98);
 }
+
+/*td img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}*/
 
 .eventdetailtable {
   background-color: lavender;
@@ -191,6 +202,16 @@ h3 {
   text-align: left;
   font-style: italic;
 
+}
+
+.photo {
+  height: 300px;
+  width: 300px; 
+}
+
+.dashboardphoto {
+  height: 150px;
+  width: 150px; 
 }
 
 .eventdetails {

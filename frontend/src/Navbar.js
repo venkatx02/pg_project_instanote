@@ -3,9 +3,17 @@ import {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import {store} from './App'
 import {FaSignInAlt,FaUser} from 'react-icons/fa'
+import { Navigate } from "react-router-dom";
+import Home from './Home'
 
 function Navbar() {
     const [token, setToken] = useContext(store)
+
+    const logoutHandler = () => {
+        setToken(null)
+    }
+
+    
 
   return (
     <header className='navbar'>
@@ -20,7 +28,7 @@ function Navbar() {
         <ul>
           <li className='navbutton'><Link to='/dashboard'>Search for Events</Link></li>
           <li className='navbutton'><Link to='/dashboard/hostevent'>Host your own Event</Link></li>
-          <li><button className='logout' onClick={ () => setToken(null) }>Logout</button></li>
+          <li><button className='logout' onClick={logoutHandler}>Logout</button></li>
         </ul>
 
         }
