@@ -55,7 +55,13 @@ function Hostevent() {
       const headers = {
         Authorization: `Bearer ${token}`
       }
-       axios.post(url, formData, { headers: headers})
+      try{
+       axios.post(url, formData, { headers: headers}).then(toast.success('Posted Successfully'))
+      }
+      catch(error){
+        console.log(error)
+        toast.error('Something went wrong!')
+      }
         /* e.preventDefault()
 
 
